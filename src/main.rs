@@ -305,7 +305,7 @@ fn flatten_nodes(
     );
     for node in nodes {
         let empty = &mut Vec::new();
-        let attrs = node.tags.as_ref().get_or_insert(empty).clone();
+        let tags = node.tags.as_ref().get_or_insert(empty).clone();
 
         let mut parent_url = path.to_owned();
         let url = path.clone() + node.name.as_str();
@@ -317,7 +317,7 @@ fn flatten_nodes(
             url.clone(),
             node.name.clone(),
             node.type_field.clone(),
-            attrs.to_vec(),
+            tags.to_vec(),
         );
 
         let id = root.uuid;

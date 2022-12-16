@@ -75,7 +75,7 @@ Query Parameters:
 - `direction`: The direction you want to explore. Select `OUT` for outbound relations leaving the node. Select `IN` for inbound relations coming into the node. In a tree, `IN` would be to go from children to parent and `OUT` to go from parent to children.
 - `relation_type`: Besides direction, you can add an additional filter by relation type, use this to filter for specific relations.
 
-### Input Data.
+### Input Data
 
 You can find an example data [here](/data/data_example.json). 
 
