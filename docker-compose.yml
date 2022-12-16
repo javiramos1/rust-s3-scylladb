@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+
+  scylladb:
+    image: "scylladb/scylla"
+    ports:
+     - "9042:9042"
+    volumes:
+     - /var/lib/scylla:/var/lib/scylla
+    restart: always
+    command: '--experimental 1'
+  

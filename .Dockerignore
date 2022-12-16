@@ -1,0 +1,5 @@
+target/
+schema/
+k8s/
+backup/
+/.git/

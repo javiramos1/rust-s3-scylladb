@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rust-s3-scylladb-svc
+  labels:
+    app: rust-s3-scylladb-svc
+spec:
+  selector:
+    matchLabels:
+      app: rust-s3-scylladb-svc
+  replicas: 16
+  template:
+    metadata:
+      labels:
+        app: rust-s3-scylladb-svc
+    spec:
+      containers:
+        - name: rust-s3-scylladb-svc
+          image: rust-s3-scylladb/rust-s3-scylladb-svc:0.0.1
+          resources:
+            requests:
+              cpu: 8
+              memory: 32Gi
+            limits:
+              cpu: 16
+              memory: 64Gi
+          env:
+          - name: HOST
+            value: "0.0.0.0"
+          - name: PORT
+            value: "3000"
+          - name: RUST_LOG
+            value: "info"
+          - name: DB_URL
+            value: ""
+          - name: PARALLEL_FILES
+            value: "2"
+          - name: DB_DC
+            value: "eu-west-1"
+          - name: REGION
+            value: "eu-west-1"
+          - name: SCHEMA_FILE
+            value: ""
+          - name: DB_PARALLELISM
+            value: "80"
+          - name: ES_PARALLELISM
+            value: "72"
+          - name: AWS_ACCESS_KEY_ID
+            value: ""
+          - name: AWS_SECRET_ACCESS_KEY
+            value: ""
+          ports:
+            - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rust-s3-scylladb-svc-svc
+spec:
+  selector:
+    app: rust-s3-scylladb-svc
+  type: ClusterIP
+  ports:
+    - targetPort: 3000
+      port: 3000

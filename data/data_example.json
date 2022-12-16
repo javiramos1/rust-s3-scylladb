@@ -1,0 +1,201 @@
+{
+  "nodes": [
+    {
+      "name": "root",
+      "type": "root_type",
+      "children": [
+        {
+          "name": "children1",
+          "type": "type",
+          "children": [
+            {
+              "name": "children11",
+              "type": "type1",
+              "children": [
+                {
+                  "name": "children111",
+                  "type": "type11",
+                  "children": [
+                    {
+                      "name": "children1111",
+                      "type": "type111",
+                      "children": []
+                    },
+                    {
+                      "name": "children1112",
+                      "type": "type111",
+                      "children": [],
+                      "tags": [
+                        {
+                          "type": "tag_type_1",
+                          "value": "value_1"
+                        },
+                        {
+                          "type": "tag_type_2",
+                          "value": "value_2"
+                        },
+                        {
+                          "type": "tag_type_3",
+                          "value": "value_3"
+                        }
+                      ]
+                    }
+                  ],
+                  "tags": [
+                    {
+                      "type": "tag_type_a",
+                      "value": "value_a"
+                    },
+                    {
+                      "type": "tag_type_b",
+                      "value": "value_b"
+                    }
+                  ]
+                },
+                {
+                  "name": "children112",
+                  "type": "type12",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "children12",
+              "type": "type1",
+              "children": [],
+              "tags": [
+                {
+                  "type": "tag_type_x",
+                  "value": "value_x"
+                },
+                {
+                  "type": "tag_type_y",
+                  "value": "value_y"
+                }
+              ]
+            },
+            {
+              "name": "children13",
+              "type": "type1",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "children2",
+      "type": "type",
+      "children": [
+        {
+          "name": "children21",
+          "type": "type2",
+          "children": [
+            {
+              "name": "children211",
+              "type": "type21",
+              "children": [
+                {
+                  "name": "children2111",
+                  "type": "type211",
+                  "children": [
+                    {
+                      "name": "children21111",
+                      "type": "type2111",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "children2112",
+                  "type": "type211",
+                  "children": []
+                },
+                {
+                  "name": "children2113",
+                  "type": "type211",
+                  "children": [],
+                  "tags": [
+                    {
+                      "type": "tag_type_6",
+                      "value": "value_2"
+                    },
+                    {
+                      "type": "tag_type_4",
+                      "value": "value_27"
+                    },
+                    {
+                      "type": "tag_type_7",
+                      "value": "value_27"
+                    },
+                    {
+                      "type": "tag_type_9",
+                      "value": "value_8"
+                    },
+                    {
+                      "type": "tag_type_71",
+                      "value": "value_799"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "children212",
+              "type": "type21",
+              "children": []
+            },
+            {
+              "name": "children213",
+              "type": "type21",
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "type": "rel_type1",
+      "tags": [],
+      "source": [
+        "children1"
+      ],
+      "target": [
+        "children2"
+      ]
+    },
+    {
+      "type": "rel_type2",
+      "tags": [],
+      "source": [
+        "children1"
+      ],
+      "target": [
+        "children2"
+      ]
+    },
+    {
+      "type": "rel_type1",
+      "tags": [
+        {
+          "type": "tag_type_x",
+          "value": "value_x"
+        },
+        {
+          "type": "tag_type_y",
+          "value": "value_y"
+        }
+      ],
+      "source": [
+        "children1",
+        "children12"
+      ],
+      "target": [
+        "children2",
+        "children13"
+      ]
+    }
+  ]
+}
