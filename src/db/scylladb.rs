@@ -14,10 +14,9 @@ use uuid::Uuid;
 use std::time::Duration;
 use std::fs;
 
-
 pub struct ScyllaDbService {
-    db_session: Arc<Session>,
     parallelism: usize,
+    db_session: Arc<Session>,
     ps: Arc<PreparedStatement>,
     ps_traversal: Arc<PreparedStatement>,
     ps_traversal_relation: Arc<PreparedStatement>,

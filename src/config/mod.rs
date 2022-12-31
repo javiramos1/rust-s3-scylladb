@@ -3,7 +3,7 @@ use dotenv::dotenv;
 use eyre::WrapErr;
 
 use serde::Deserialize;
-use tracing::{info, debug, instrument};
+use tracing::{info, debug};
 use tracing_subscriber::EnvFilter;
 
 #[derive(Debug, Deserialize, Clone)]
@@ -28,7 +28,7 @@ fn init_tracer() {
 }
 
 impl Config {
-    #[instrument]
+
     pub fn from_env() -> Result<Config> {
         dotenv().ok();
 

@@ -33,7 +33,8 @@ use uuid::Uuid;
 use std::string::ToString;
 use strum_macros::Display;
 
-#[derive(Display, Debug)]enum DIR {
+#[derive(Display, Debug)]
+pub enum DIR {
     IN,
     OUT
 }
@@ -209,7 +210,7 @@ async fn process_file(
     info!("File Read. Processing Relations..");
     let relations = process_relations(&ingestion_id, contents.relations);
     info!(
-        "Relations procesed, size: {}. Persisting Nodes..",
+        "Relations processed, size: {}. Persisting Nodes..",
         relations.len()
     );
 
@@ -217,7 +218,7 @@ async fn process_file(
     let nodes = process_nodes(&ingestion_id, contents.nodes, relations).await?;
 
     info!(
-        "Nodes proccesed, nodes size: {}.Persisting...",
+        "Nodes processed, nodes size: {}.Persisting...",
         nodes.len()
     );
 

@@ -1,7 +1,7 @@
 use scylla::macros::FromRow;
 use uuid::Uuid;
 
-use crate::data::{source_model::Tag, model::{get_id_from_url, Relation}};
+use crate::{data::{source_model::Tag, model::{get_id_from_url, Relation}}, DIR};
 
 #[derive(Default, Debug, Clone, FromRow)]
 pub struct DbNode {
@@ -44,10 +44,8 @@ impl DbNode {
         source_tags: Vec<Tag>,
     ) -> Self {
         let id = get_id_from_url(ingestion_id.clone(), url.clone());
-        let mut tags = Vec::new();
-        for a in source_tags.iter() {
-            tags.push((a.type_field.clone(), a.value.clone()));
-        }
+        let tags: Vec<(String, String)> = source_tags.iter().map(|a| (a.type_field.clone(), a.value.clone())).collect();
+  
         Self {
             uuid: id,
             direction: None,
@@ -96,9 +94,9 @@ impl DbNode {
 
     pub fn from_rel(uuid: Uuid, provier_id: String, relation: &Relation) -> Self {
         let direction = if relation.outbound {
-            "outbound"
+            DIR::OUT.to_string()
         } else {
-            "inbound"
+            DIR::IN.to_string()
         };
         DbNode {
             uuid,
