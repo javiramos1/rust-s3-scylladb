@@ -92,7 +92,7 @@ impl DbNode {
         }
     }
 
-    pub fn from_rel(uuid: Uuid, provier_id: String, relation: &Relation) -> Self {
+    pub fn from_rel(uuid: Uuid, ingestion_id: String, relation: &Relation) -> Self {
         let direction = if relation.outbound {
             DIR::OUT.to_string()
         } else {
@@ -104,7 +104,7 @@ impl DbNode {
             relation: Some(relation.rel_type.to_owned()),
             relates_to: Some(relation.relates_to.to_owned()),
             name: relation.target_name.to_owned(),
-            ingestion_id: provier_id,
+            ingestion_id: ingestion_id,
             url: "".to_owned(),
             node_type: "".to_owned(),
             tags: None,

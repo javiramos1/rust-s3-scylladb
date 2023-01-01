@@ -2,6 +2,7 @@ use serde::Deserialize;
 use serde::Serialize;
 use uuid::Uuid;
 
+use crate::DIR;
 use crate::db::model::DbNode;
 use crate::db::model::DbRelation;
 
@@ -61,7 +62,7 @@ impl Node {
                 continue;
             } else {
                 n = db_entries.get(i)?;
-                let outbound = n.direction.clone().unwrap() == "outbound";
+                let outbound = n.direction.clone().unwrap() == DIR::OUT.to_string() ;
                 let r = Relation::from(
                     n.name.clone(),
                     n.relation.clone().unwrap(),
